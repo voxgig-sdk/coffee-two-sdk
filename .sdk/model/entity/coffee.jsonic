@@ -1,0 +1,37 @@
+# Entity: coffee
+
+main: kit: entity: coffee: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "file"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "coffee"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/random.json"
+          parts: [
+            "random.json"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

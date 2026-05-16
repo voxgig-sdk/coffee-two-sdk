@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "coffee": {
+      "COFFEE00": {
+        "file": "sa",
+        "id": "COFFEE00"
+      },
+      "COFFEE01": {
+        "file": "s14",
+        "id": "COFFEE01"
+      },
+      "COFFEE02": {
+        "file": "s1e",
+        "id": "COFFEE02"
+      }
+    }
+  },
+  "new": {
+    "coffee": {
+      "coffee_ref01": {
+        "file": "s28"
+      }
+    }
+  }
+}

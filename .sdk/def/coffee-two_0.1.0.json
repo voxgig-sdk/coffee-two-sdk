@@ -1,0 +1,65 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Coffee API",
+    "description": "Start your day with a lovely coffee~ Provides access to a collection of 1257 coffee images. Users can request a random coffee image in JSON format.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://coffee.alexflipnote.dev/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://coffee.alexflipnote.dev",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/random.json": {
+      "get": {
+        "summary": "Get random coffee image",
+        "description": "Returns a random coffee image URL from a collection of 1257 coffee images in JSON format.",
+        "operationId": "getRandomCoffeeJson",
+        "tags": [
+          "Coffee"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with random coffee image",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "URL of the random coffee image",
+                      "example": "https://coffee.alexflipnote.dev/coffee_image.jpg"
+                    }
+                  },
+                  "required": [
+                    "file"
+                  ]
+                },
+                "example": {
+                  "file": "https://coffee.alexflipnote.dev/coffee_image.jpg"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Coffee",
+      "description": "Operations related to retrieving random coffee images"
+    }
+  ],
+  "externalDocs": {
+    "description": "Coffee API Documentation",
+    "url": "https://coffee.alexflipnote.dev/"
+  }
+}
