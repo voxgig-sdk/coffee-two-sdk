@@ -91,7 +91,6 @@ def _coffee_basic_setup(extra):
         "COFFEETWO_TEST_COFFEE_ENTID": idmap,
         "COFFEETWO_TEST_LIVE": "FALSE",
         "COFFEETWO_TEST_EXPLAIN": "FALSE",
-        "COFFEETWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _coffee_basic_setup(extra):
     if env.get("COFFEETWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("COFFEETWO_APIKEY"),
             },
             extra or {},
         ])

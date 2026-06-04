@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'COFFEETWO_TEST_COFFEE_ENTID': {},
     'COFFEETWO_TEST_LIVE': 'FALSE',
-    'COFFEETWO_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.COFFEETWO_TEST_LIVE
 
   if (live) {
     const client = new CoffeeTwoSDK({
-      apikey: env.COFFEETWO_APIKEY,
     })
 
     let idmap: any = env['COFFEETWO_TEST_COFFEE_ENTID']

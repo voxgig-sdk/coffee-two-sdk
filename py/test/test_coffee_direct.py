@@ -59,14 +59,12 @@ def _coffee_direct_setup(mockres):
     env = runner.env_override({
         "COFFEETWO_TEST_COFFEE_ENTID": {},
         "COFFEETWO_TEST_LIVE": "FALSE",
-        "COFFEETWO_APIKEY": "NONE",
     })
 
     live = env.get("COFFEETWO_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("COFFEETWO_APIKEY"),
         }
         client = CoffeeTwoSDK(merged_opts)
         return {

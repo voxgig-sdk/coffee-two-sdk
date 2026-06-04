@@ -85,7 +85,6 @@ function coffee_basic_setup($extra)
         "COFFEETWO_TEST_COFFEE_ENTID" => $idmap,
         "COFFEETWO_TEST_LIVE" => "FALSE",
         "COFFEETWO_TEST_EXPLAIN" => "FALSE",
-        "COFFEETWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function coffee_basic_setup($extra)
     if ($env["COFFEETWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["COFFEETWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

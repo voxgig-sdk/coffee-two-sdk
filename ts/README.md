@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { CoffeeTwoSDK } from 'coffee-two'
 
-const client = new CoffeeTwoSDK({
-  apikey: process.env.COFFEE-TWO_APIKEY,
-})
+const client = new CoffeeTwoSDK({})
 ```
 
 ### 3. Load a coffee
@@ -82,7 +80,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new CoffeeTwoSDK({ apikey: '...' })
+const client = new CoffeeTwoSDK()
 const testClient = client.tester()
 ```
 
@@ -118,7 +116,6 @@ const logger = {
 }
 
 const client = new CoffeeTwoSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -129,7 +126,6 @@ Create a `.env.local` file at the project root:
 
 ```
 COFFEE-TWO_TEST_LIVE=TRUE
-COFFEE-TWO_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,7 +143,6 @@ cd ts && npm test
 
 ```ts
 new CoffeeTwoSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -158,7 +153,6 @@ new CoffeeTwoSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

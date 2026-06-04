@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://coffee.alexflipnote.dev',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
