@@ -10,7 +10,7 @@ The Python SDK for the CoffeeTwo API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install coffee-two-sdk
+pip install voxgig-sdk-coffee-two
 ```
 
 Or install from source:

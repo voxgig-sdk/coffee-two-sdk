@@ -10,7 +10,7 @@ The TypeScript SDK for the CoffeeTwo API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install coffee-two
+npm install @voxgig-sdk/coffee-two
 ```
 ## Tutorial: your first API call
 

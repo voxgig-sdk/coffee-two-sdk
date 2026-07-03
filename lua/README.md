@@ -10,7 +10,7 @@ The Lua SDK for the CoffeeTwo API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install coffee-two-sdk
+luarocks install voxgig-sdk-coffee-two
 ```
 
 If the module is not yet published, add the source directory to

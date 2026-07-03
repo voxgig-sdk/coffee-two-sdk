@@ -10,7 +10,7 @@ The PHP SDK for the CoffeeTwo API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/coffee-two-sdk
+composer require voxgig-sdk/coffee-two
 ```
 
 

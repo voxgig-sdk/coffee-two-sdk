@@ -10,13 +10,13 @@ The Ruby SDK for the CoffeeTwo API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install coffee-two-sdk
+gem install voxgig-sdk-coffee-two
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "coffee-two-sdk"
+gem "voxgig-sdk-coffee-two"
 ```
 
 Then run:
