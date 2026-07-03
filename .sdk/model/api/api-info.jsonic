@@ -16,26 +16,7 @@ main: {
       ]
       title: "Coffee API"
       version: "1.0.0"
-      tagline: "Fetch a random coffee image from a curated collection of 1257 photos"
-      homepage: "https://coffee.alexflipnote.dev"
-      docs_url: "https://coffee.alexflipnote.dev"
-      license_short: "No license declared; check upstream before redistribution"
-      license_md: `- No explicit license is published on the API homepage or catalogue listing.
-- Images are hosted by [Alex Flipnote](https://coffee.alexflipnote.dev); attribution to the author is courteous when reusing them.
-- Treat the dataset as third-party content and verify rights before redistribution or commercial use.`
-      about_md: `The Coffee API is a small public endpoint maintained by [Alex Flipnote](https://coffee.alexflipnote.dev) that serves a random image from a collection of 1257 coffee photos. It is designed for casual use in demos, tutorials, and lightweight apps that need a friendly picture to display.
-
-What you get from the API:
-
-- A JSON response containing the URL of a randomly selected coffee image
-- Access to a fixed pool of 1257 curated photos
-- A simple HTML-friendly variant that returns a direct image view
-
-The service exposes a single endpoint pattern and does not require an API key. No formal rate limits, authentication, or CORS policy are documented on the homepage, so production use should include client-side caching and graceful fallbacks.`
-      entity_desc: {
-        coffee: "A random coffee photograph drawn from the hosted collection of 1257 images, returned as a JSON object at `/random.json` (or as an image view at `/random`)."
-      }
-      auth: false
     }
   }
 }
+

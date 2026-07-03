@@ -1,20 +1,8 @@
 # CoffeeTwo SDK
 
-Fetch a random coffee image from a curated collection of 1257 photos
+Coffee API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Coffee API
-
-The Coffee API is a small public endpoint maintained by [Alex Flipnote](https://coffee.alexflipnote.dev) that serves a random image from a collection of 1257 coffee photos. It is designed for casual use in demos, tutorials, and lightweight apps that need a friendly picture to display.
-
-What you get from the API:
-
-- A JSON response containing the URL of a randomly selected coffee image
-- Access to a fixed pool of 1257 curated photos
-- A simple HTML-friendly variant that returns a direct image view
-
-The service exposes a single endpoint pattern and does not require an API key. No formal rate limits, authentication, or CORS policy are documented on the homepage, so production use should include client-side caching and graceful fallbacks.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install coffee-two-sdk
 luarocks install coffee-two-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CoffeeTwoSDK } from 'coffee-two'
 
-const client = new CoffeeTwoSDK({})
+const client = new CoffeeTwoSDK({
+  apikey: process.env.COFFEE-TWO_APIKEY,
+})
 
+// Load coffee data
+const coffee = await client.Coffee().load({})
+console.log(coffee.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Coffee** | A random coffee photograph drawn from the hosted collection of 1257 images, returned as a JSON object at `/random.json` (or as an image view at `/random`). | `/random.json` |
+| **Coffee** |  | `/random.json` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from coffeetwo_sdk import CoffeeTwoSDK
 
-client = CoffeeTwoSDK({})
+client = CoffeeTwoSDK({
+    "apikey": os.environ.get("COFFEE-TWO_APIKEY"),
+})
 
 
 # Load a specific coffee
-coffee, err = client.Coffee(None).load(
-    {"id": "example_id"}, None
-)
+coffee, err = client.Coffee().load({"id": "example_id"})
+print(coffee)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ coffee, err = client.Coffee(None).load(
 <?php
 require_once 'coffeetwo_sdk.php';
 
-$client = new CoffeeTwoSDK([]);
+$client = new CoffeeTwoSDK([
+    "apikey" => getenv("COFFEE-TWO_APIKEY"),
+]);
 
 
 // Load a specific coffee
-[$coffee, $err] = $client->Coffee(null)->load(
-    ["id" => "example_id"], null
-);
+[$coffee, $err] = $client->Coffee()->load(["id" => "example_id"]);
+print_r($coffee);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new CoffeeTwoSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/coffee-two-sdk/go"
 
-client := sdk.NewCoffeeTwoSDK(map[string]any{})
+client := sdk.NewCoffeeTwoSDK(map[string]any{
+    "apikey": os.Getenv("COFFEE-TWO_APIKEY"),
+})
 
+// Load coffee data
+coffee, err := client.Coffee(nil).Load(map[string]any{}, nil)
+fmt.Println(coffee)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewCoffeeTwoSDK(map[string]any{})
 ```ruby
 require_relative "CoffeeTwo_sdk"
 
-client = CoffeeTwoSDK.new({})
+client = CoffeeTwoSDK.new({
+  "apikey" => ENV["COFFEE-TWO_APIKEY"],
+})
 
 
 # Load a specific coffee
-coffee, err = client.Coffee(nil).load(
-  { "id" => "example_id" }, nil
-)
+coffee, err = client.Coffee().load({ "id" => "example_id" })
+puts coffee
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ coffee, err = client.Coffee(nil).load(
 ```lua
 local sdk = require("coffee-two_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("COFFEE-TWO_APIKEY"),
+})
 
 
 -- Load a specific coffee
-local coffee, err = client:Coffee(nil):load(
-  { id = "example_id" }, nil
-)
+local coffee, err = client:Coffee():load({ id = "example_id" })
+print(coffee)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.Coffee().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CoffeeTwoSDK.test(None, None)
-result, err = client.Coffee(None).load(
-    {"id": "test01"}, None
-)
+client = CoffeeTwoSDK.test()
+result, err = client.Coffee().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CoffeeTwoSDK::test(null, null);
-[$result, $err] = $client->Coffee(null)->load(
-    ["id" => "test01"], null
-);
+$client = CoffeeTwoSDK::test();
+[$result, $err] = $client->Coffee()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Coffee(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.Coffee(nil).Load(
 ### Ruby
 
 ```ruby
-client = CoffeeTwoSDK.test(nil, nil)
-result, err = client.Coffee(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CoffeeTwoSDK.test
+result, err = client.Coffee().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Coffee(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Coffee():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,14 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Coffee API
-
-- Upstream: [https://coffee.alexflipnote.dev](https://coffee.alexflipnote.dev)
-
-- No explicit license is published on the API homepage or catalogue listing.
-- Images are hosted by [Alex Flipnote](https://coffee.alexflipnote.dev); attribution to the author is courteous when reusing them.
-- Treat the dataset as third-party content and verify rights before redistribution or commercial use.
 
 ---
 

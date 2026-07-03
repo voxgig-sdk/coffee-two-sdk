@@ -117,6 +117,7 @@ func coffeeBasicSetup(extra map[string]any) *entityTestSetup {
 		"COFFEETWO_TEST_COFFEE_ENTID": idmap,
 		"COFFEETWO_TEST_LIVE":      "FALSE",
 		"COFFEETWO_TEST_EXPLAIN":   "FALSE",
+		"COFFEETWO_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["COFFEETWO_TEST_COFFEE_ENTID"])
@@ -127,6 +128,7 @@ func coffeeBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["COFFEETWO_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["COFFEETWO_APIKEY"],
 			},
 			extra,
 		})

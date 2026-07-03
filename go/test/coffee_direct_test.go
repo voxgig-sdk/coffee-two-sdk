@@ -99,12 +99,14 @@ func coffeeDirectSetup(mockres any) *coffeeDirectSetupResult {
 	env := envOverride(map[string]any{
 		"COFFEETWO_TEST_COFFEE_ENTID": map[string]any{},
 		"COFFEETWO_TEST_LIVE":    "FALSE",
+		"COFFEETWO_APIKEY":       "NONE",
 	})
 
 	live := env["COFFEETWO_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["COFFEETWO_APIKEY"],
 		}
 		client := sdk.NewCoffeeTwoSDK(mergedOpts)
 

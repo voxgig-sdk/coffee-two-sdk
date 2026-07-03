@@ -15,6 +15,9 @@ module CoffeeTwoConfig
       },
       "options" => {
         "base" => "https://coffee.alexflipnote.dev",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -26,35 +29,35 @@ module CoffeeTwoConfig
         "coffee" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "file",
               "req" => true,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 0,
             },
           ],
           "name" => "coffee",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "GET",
                   "orig" => "/random.json",
                   "parts" => [
                     "random.json",
                   ],
+                  "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "args" => {},
-                  "select" => {},
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },

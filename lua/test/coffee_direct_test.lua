@@ -62,12 +62,14 @@ function coffee_direct_setup(mockres)
   local env = runner.env_override({
     ["COFFEETWO_TEST_COFFEE_ENTID"] = {},
     ["COFFEETWO_TEST_LIVE"] = "FALSE",
+    ["COFFEETWO_APIKEY"] = "NONE",
   })
 
   local live = env["COFFEETWO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["COFFEETWO_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

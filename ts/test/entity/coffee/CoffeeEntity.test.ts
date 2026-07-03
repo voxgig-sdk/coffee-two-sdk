@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'COFFEE_TWO_TEST_COFFEE_ENTID': idmap,
     'COFFEE_TWO_TEST_LIVE': 'FALSE',
     'COFFEE_TWO_TEST_EXPLAIN': 'FALSE',
+    'COFFEE_TWO_APIKEY': 'NONE',
   })
 
   idmap = env['COFFEE_TWO_TEST_COFFEE_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CoffeeTwoSDK(merge([
       {
+        apikey: env.COFFEE_TWO_APIKEY,
       },
       extra
     ]))
