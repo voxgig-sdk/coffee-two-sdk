@@ -233,10 +233,10 @@ class CoffeeTwoSDK
 
     private $_coffee = null;
 
-    // Idiomatic facade: $client->coffee()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Coffee() (PHP method
-    // names are case-insensitive).
-    public function coffee($data = null)
+    // Canonical facade: $client->Coffee()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->coffee()
+    // resolves here too.
+    public function Coffee($data = null)
     {
         require_once __DIR__ . '/entity/coffee_entity.php';
         if ($data === null) {

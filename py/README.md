@@ -33,10 +33,12 @@ client = CoffeeTwoSDK()
 
 ### 3. Load a coffee
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.coffee.load({"id": "example_id"})
-    print(result)
+    coffee = client.Coffee().load({"id": "example_id"})
+    print(coffee)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CoffeeTwoSDK.test()
 
-result = client.coffee.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+coffee = client.Coffee().load({"id": "test01"})
+# coffee contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -218,7 +221,7 @@ API path: `/random.json`
 
 ### Coffee
 
-Create an instance: `const coffee = client.coffee`
+Create an instance: `coffee = client.Coffee()`
 
 #### Operations
 
@@ -234,8 +237,8 @@ Create an instance: `const coffee = client.coffee`
 
 #### Example: Load
 
-```ts
-const coffee = await client.coffee.load({ id: 'coffee_id' })
+```python
+coffee = client.Coffee().load({"id": "coffee_id"})
 ```
 
 
@@ -309,7 +312,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-coffee = client.coffee
+coffee = client.Coffee()
 coffee.load({"id": "example_id"})
 
 # coffee.data_get() now returns the loaded coffee data

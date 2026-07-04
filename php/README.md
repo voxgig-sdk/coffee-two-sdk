@@ -33,9 +33,10 @@ $client = new CoffeeTwoSDK();
 
 ```php
 try {
-    $result = $client->coffee()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Coffee record (throws on error).
+    $coffee = $client->Coffee()->load(["id" => "example_id"]);
+    print_r($coffee);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CoffeeTwoSDK::test();
+$client = CoffeeTwoSDK::test([
+    "entity" => ["coffee" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->coffee()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$coffee = $client->Coffee()->load(["id" => "test01"]);
+print_r($coffee);
 ```
 
 ### Use a custom fetch function
@@ -223,7 +228,7 @@ API path: `/random.json`
 
 ### Coffee
 
-Create an instance: `const coffee = client.coffee`
+Create an instance: `$coffee = $client->Coffee();`
 
 #### Operations
 
@@ -239,8 +244,9 @@ Create an instance: `const coffee = client.coffee`
 
 #### Example: Load
 
-```ts
-const coffee = await client.coffee.load({ id: 'coffee_id' })
+```php
+// load() returns the bare Coffee record (throws on error).
+$coffee = $client->Coffee()->load(["id" => "coffee_id"]);
 ```
 
 
@@ -315,7 +321,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$coffee = $client->coffee();
+$coffee = $client->Coffee();
 $coffee->load(["id" => "example_id"]);
 
 // $coffee->dataGet() now returns the loaded coffee data

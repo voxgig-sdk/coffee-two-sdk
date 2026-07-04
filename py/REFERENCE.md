@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CoffeeEntity
 
 ```python
-coffee = client.coffee
+coffee = client.Coffee()
 ```
 
 ### Fields
@@ -96,7 +96,7 @@ coffee = client.coffee
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.coffee.load({"id": "coffee_id"})
+result = client.Coffee().load({"id": "coffee_id"})
 ```
 
 ### Common Methods

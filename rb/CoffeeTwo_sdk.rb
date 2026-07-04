@@ -208,13 +208,7 @@ class CoffeeTwoSDK
   end
 
 
-  # Idiomatic facade: client.coffee.list / client.coffee.load({ "id" => ... })
-  def coffee
-    require_relative 'entity/coffee_entity'
-    @coffee ||= CoffeeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.coffee instead.
+  # Canonical facade: client.Coffee.list / client.Coffee.load({ "id" => ... })
   def Coffee(data = nil)
     require_relative 'entity/coffee_entity'
     CoffeeEntity.new(self, data)

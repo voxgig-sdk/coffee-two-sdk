@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CoffeeEntity
 
 ```php
-$coffee = $client->coffee();
+$coffee = $client->Coffee();
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ $coffee = $client->coffee();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->coffee()->load(["id" => "coffee_id"]);
+$result = $client->Coffee()->load(["id" => "coffee_id"]);
 ```
 
 ### Common Methods

@@ -26,9 +26,9 @@ import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two'
 
 const client = new CoffeeTwoSDK()
 
-// Load coffee data
-const coffee = await client.coffee.load({})
-console.log(coffee.data)
+// Load coffee data (returns a Coffee)
+const coffee = await client.Coffee().load()
+console.log(coffee)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from coffeetwo_sdk import CoffeeTwoSDK
 client = CoffeeTwoSDK()
 
 
-# Load a specific coffee
-coffee = client.coffee.load({"id": "example_id"})
+# Load a specific coffee (returns the record, raises on error)
+coffee = client.Coffee().load({"id": "example_id"})
 print(coffee)
 ```
 
@@ -98,8 +98,8 @@ require_once 'coffeetwo_sdk.php';
 $client = new CoffeeTwoSDK();
 
 
-// Load a specific coffee
-$coffee = $client->coffee()->load(["id" => "example_id"]);
+// Load a specific coffee (returns the bare record; throws on error)
+$coffee = $client->Coffee()->load(["id" => "example_id"]);
 print_r($coffee);
 ```
 
@@ -123,8 +123,8 @@ require_relative "CoffeeTwo_sdk"
 client = CoffeeTwoSDK.new
 
 
-# Load a specific coffee
-coffee = client.coffee.load({ "id" => "example_id" })
+# Load a specific coffee (returns the bare record; raises on error)
+coffee = client.Coffee.load({ "id" => "example_id" })
 puts coffee
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific coffee
-local coffee, err = client:coffee():load({ id = "example_id" })
+local coffee, err = client:Coffee():load({ id = "example_id" })
 print(coffee)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CoffeeTwoSDK.test()
-const result = await client.coffee.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const coffee = await client.Coffee().load({ id: 'test01' })
+// coffee is a bare Coffee populated with mock data
+console.log(coffee)
 ```
 
 ### Python
 
 ```python
 client = CoffeeTwoSDK.test()
-result = client.coffee.load({"id": "test01"})
+coffee = client.Coffee().load({"id": "test01"})
+print(coffee)
 ```
 
 ### PHP
 
 ```php
-$client = CoffeeTwoSDK::test();
-$result = $client->coffee()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CoffeeTwoSDK::test([
+    "entity" => ["coffee" => ["test01" => ["id" => "test01"]]],
+]);
+$coffee = $client->Coffee()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Coffee(nil).Load(
 ### Ruby
 
 ```ruby
-client = CoffeeTwoSDK.test
-result = client.coffee.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CoffeeTwoSDK.test({
+  "entity" => { "coffee" => { "test01" => { "id" => "test01" } } },
+})
+coffee = client.Coffee.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:coffee():load({ id = "test01" })
+local result, err = client:Coffee():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

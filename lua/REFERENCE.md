@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## CoffeeEntity
 
 ```lua
-local coffee = client:coffee(nil)
+local coffee = client:Coffee(nil)
 ```
 
 ### Fields
@@ -99,7 +99,7 @@ local coffee = client:coffee(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:coffee():load({ id = "coffee_id" })
+local result, err = client:Coffee():load({ id = "coffee_id" })
 ```
 
 ### Common Methods

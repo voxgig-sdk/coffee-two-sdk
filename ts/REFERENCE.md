@@ -109,7 +109,7 @@ Alias for `CoffeeTwoSDK.test()`.
 ## CoffeeEntity
 
 ```ts
-const coffee = client.coffee
+const coffee = client.Coffee()
 ```
 
 ### Fields
@@ -125,7 +125,7 @@ const coffee = client.coffee
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.coffee.load({ id: 'coffee_id' })
+const result = await client.Coffee().load({ id: 'coffee_id' })
 ```
 
 ### Common Methods

@@ -204,14 +204,7 @@ class CoffeeTwoSDK {
 
 
 
-  _coffee?: CoffeeEntity
-
-  // Idiomatic facade: `client.coffee.list()` / `client.coffee.load({ id })`.
-  get coffee(): CoffeeEntity {
-    return (this._coffee ??= new CoffeeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.coffee` instead. */
+  // Entity access: `client.Coffee().list()` / `client.Coffee().load({ id })`.
   Coffee(data?: any) {
     const self = this
     return new CoffeeEntity(self,data)

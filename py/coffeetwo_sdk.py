@@ -220,25 +220,15 @@ class CoffeeTwoSDK:
         }
 
 
-    @property
-    def coffee(self):
-        """Idiomatic facade: client.coffee.list() / client.coffee.load({"id": ...})."""
-        from entity.coffee_entity import CoffeeEntity
-        cached = getattr(self, "_coffee", None)
-        if cached is None:
-            cached = CoffeeEntity(self, None)
-            self._coffee = cached
-        return cached
-
-    def Coffee(self, data=None):
-        # Deprecated: use client.coffee instead.
+    def Coffee(self, data=None) -> "CoffeeEntity":
+        """Entity factory: client.Coffee().list({}) / client.Coffee().load({"id": ...})."""
         from entity.coffee_entity import CoffeeEntity
         return CoffeeEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CoffeeTwoSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class CoffeeTwoSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.coffee_entity import CoffeeEntity
