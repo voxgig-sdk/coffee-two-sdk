@@ -45,6 +45,7 @@ class CoffeeEntity
     end
   end
 
+  # @return [Coffee, Hash] the current Coffee data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class CoffeeEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Coffee fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Coffee.
+  #
+  # @param reqmatch [CoffeeLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Coffee, Hash] the loaded Coffee; raises CoffeeTwoError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

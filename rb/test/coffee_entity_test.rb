@@ -42,8 +42,7 @@ class CoffeeEntityTest < Minitest::Test
     # LOAD
     coffee_ref01_ent = client.Coffee(nil)
     coffee_ref01_match_dt0 = {}
-    coffee_ref01_data_dt0_loaded, err = coffee_ref01_ent.load(coffee_ref01_match_dt0, nil)
-    assert_nil err
+    coffee_ref01_data_dt0_loaded = coffee_ref01_ent.load(coffee_ref01_match_dt0, nil)
     assert !coffee_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def coffee_basic_setup(extra)
     "COFFEETWO_TEST_COFFEE_ENTID" => idmap,
     "COFFEETWO_TEST_LIVE" => "FALSE",
     "COFFEETWO_TEST_EXPLAIN" => "FALSE",
-    "COFFEETWO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def coffee_basic_setup(extra)
   if env["COFFEETWO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["COFFEETWO_APIKEY"],
       },
       extra || {},
     ])

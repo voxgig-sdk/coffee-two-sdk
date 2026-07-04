@@ -49,8 +49,7 @@ class TestCoffeeEntity:
         # LOAD
         coffee_ref01_ent = client.Coffee(None)
         coffee_ref01_match_dt0 = {}
-        coffee_ref01_data_dt0_loaded, err = coffee_ref01_ent.load(coffee_ref01_match_dt0, None)
-        assert err is None
+        coffee_ref01_data_dt0_loaded = coffee_ref01_ent.load(coffee_ref01_match_dt0, None)
         assert coffee_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _coffee_basic_setup(extra):
         "COFFEETWO_TEST_COFFEE_ENTID": idmap,
         "COFFEETWO_TEST_LIVE": "FALSE",
         "COFFEETWO_TEST_EXPLAIN": "FALSE",
-        "COFFEETWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _coffee_basic_setup(extra):
     if env.get("COFFEETWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("COFFEETWO_APIKEY"),
             },
             extra or {},
         ])

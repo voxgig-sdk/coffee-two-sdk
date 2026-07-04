@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:coffee():list() / client:coffee():load({ id = ... })
+function CoffeeTwoSDK:coffee(data)
+  local EntityMod = require("entity.coffee_entity")
+  if data == nil then
+    if self._coffee == nil then
+      self._coffee = EntityMod.new(self, nil)
+    end
+    return self._coffee
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:coffee() instead.
 function CoffeeTwoSDK:Coffee(data)
   local EntityMod = require("entity.coffee_entity")
   return EntityMod.new(self, data)

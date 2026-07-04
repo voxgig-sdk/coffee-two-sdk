@@ -245,6 +245,9 @@ func (sdk *CoffeeTwoSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// Coffee returns a Coffee entity bound to this client.
+// Idiomatic usage: client.Coffee(nil).List(nil, nil) or
+// client.Coffee(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CoffeeTwoSDK) Coffee(data map[string]any) CoffeeTwoEntity {
 	return NewCoffeeEntityFunc(sdk, data)
 }

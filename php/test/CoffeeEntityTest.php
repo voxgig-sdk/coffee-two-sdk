@@ -49,8 +49,7 @@ class CoffeeEntityTest extends TestCase
         // LOAD
         $coffee_ref01_ent = $client->Coffee(null);
         $coffee_ref01_match_dt0 = [];
-        [$coffee_ref01_data_dt0_loaded, $err] = $coffee_ref01_ent->load($coffee_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $coffee_ref01_data_dt0_loaded = $coffee_ref01_ent->load($coffee_ref01_match_dt0, null);
         $this->assertNotNull($coffee_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function coffee_basic_setup($extra)
         "COFFEETWO_TEST_COFFEE_ENTID" => $idmap,
         "COFFEETWO_TEST_LIVE" => "FALSE",
         "COFFEETWO_TEST_EXPLAIN" => "FALSE",
-        "COFFEETWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function coffee_basic_setup($extra)
     if ($env["COFFEETWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["COFFEETWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

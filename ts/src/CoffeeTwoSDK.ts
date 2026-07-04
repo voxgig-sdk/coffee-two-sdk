@@ -2,6 +2,8 @@
 
 import { CoffeeEntity } from './entity/CoffeeEntity'
 
+export type * from './CoffeeTwoTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class CoffeeTwoSDK {
 
 
 
+  _coffee?: CoffeeEntity
+
+  // Idiomatic facade: `client.coffee.list()` / `client.coffee.load({ id })`.
+  get coffee(): CoffeeEntity {
+    return (this._coffee ??= new CoffeeEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.coffee` instead. */
   Coffee(data?: any) {
     const self = this
     return new CoffeeEntity(self,data)

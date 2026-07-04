@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `CoffeeTwoSDK.test()`.
 ## CoffeeEntity
 
 ```ts
-const coffee = client.Coffee()
+const coffee = client.coffee
 ```
 
 ### Fields
@@ -126,7 +125,7 @@ const coffee = client.Coffee()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Coffee().load({ id: 'coffee_id' })
+const result = await client.coffee.load({ id: 'coffee_id' })
 ```
 
 ### Common Methods

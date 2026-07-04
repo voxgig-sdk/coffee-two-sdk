@@ -85,6 +85,27 @@ func (e *CoffeeEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Coffee; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *CoffeeEntity) DataTyped(data ...Coffee) Coffee {
+	if len(data) > 0 {
+		return typedFrom[Coffee](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Coffee](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Coffee (all fields
+// optional at the wire level).
+func (e *CoffeeEntity) MatchTyped(match ...Coffee) Coffee {
+	if len(match) > 0 {
+		return typedFrom[Coffee](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Coffee](e.Match())
+}
+
 
 func (e *CoffeeEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *CoffeeEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, 
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// CoffeeLoadMatch and returns an Coffee. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *CoffeeEntity) LoadTyped(reqmatch CoffeeLoadMatch, ctrl map[string]any) (Coffee, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Coffee{}, err
+	}
+	return typedFrom[Coffee](res), nil
 }
 
 

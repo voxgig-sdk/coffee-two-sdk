@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch CoffeeLoadMatch
+---@param ctrl? table
+---@return Coffee
+---@return string? err
 function CoffeeEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
