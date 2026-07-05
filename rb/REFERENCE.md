@@ -8,7 +8,7 @@ Complete API reference for the CoffeeTwo Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'coffee-two_sdk'
+require_relative 'CoffeeTwo_sdk'
 
 client = CoffeeTwoSDK.new(options)
 ```
@@ -93,7 +93,7 @@ coffee = client.Coffee
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | ``$STRING`` | Yes |  |
+| `file` | `String` | Yes |  |
 
 ### Operations
 
@@ -102,7 +102,7 @@ coffee = client.Coffee
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Coffee.load({ "id" => "coffee_id" })
+result = client.Coffee.load()
 ```
 
 ### Common Methods

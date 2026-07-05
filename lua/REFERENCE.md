@@ -90,7 +90,7 @@ local coffee = client:Coffee(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | ``$STRING`` | Yes |  |
+| `file` | `string` | Yes |  |
 
 ### Operations
 
@@ -99,7 +99,7 @@ local coffee = client:Coffee(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Coffee():load({ id = "coffee_id" })
+local result, err = client:Coffee():load()
 ```
 
 ### Common Methods

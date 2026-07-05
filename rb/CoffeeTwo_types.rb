@@ -17,7 +17,7 @@ Coffee = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Coffee#load (any subset of Coffee fields).
+# Request payload for Coffee#load.
 #
 # @!attribute [rw] file
 #   @return [String, nil]

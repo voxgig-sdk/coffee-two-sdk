@@ -8,7 +8,7 @@ Complete API reference for the CoffeeTwo Python SDK.
 ### Constructor
 
 ```python
-from coffee-two_sdk import CoffeeTwoSDK
+from coffeetwo_sdk import CoffeeTwoSDK
 
 client = CoffeeTwoSDK(options)
 ```
@@ -87,7 +87,7 @@ coffee = client.Coffee()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | ``$STRING`` | Yes |  |
+| `file` | `str` | Yes |  |
 
 ### Operations
 
@@ -96,7 +96,7 @@ coffee = client.Coffee()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Coffee().load({"id": "coffee_id"})
+result = client.Coffee().load()
 ```
 
 ### Common Methods

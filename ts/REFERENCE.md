@@ -116,7 +116,7 @@ const coffee = client.Coffee()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | ``$STRING`` | Yes |  |
+| `file` | `string` | Yes |  |
 
 ### Operations
 
@@ -125,7 +125,7 @@ const coffee = client.Coffee()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Coffee().load({ id: 'coffee_id' })
+const result = await client.Coffee().load()
 ```
 
 ### Common Methods

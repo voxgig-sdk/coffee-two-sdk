@@ -18,7 +18,7 @@ class Coffee
     public string $file;
 }
 
-/** Match filter for Coffee#load (any subset of Coffee fields). */
+/** Request payload for Coffee#load. */
 class CoffeeLoadMatch
 {
     public ?string $file = null;

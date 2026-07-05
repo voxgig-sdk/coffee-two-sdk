@@ -97,7 +97,7 @@ coffee := client.Coffee(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | ``$STRING`` | Yes |  |
+| `file` | `string` | Yes |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ coffee := client.Coffee(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Coffee(nil).Load(map[string]any{"id": "coffee_id"}, nil)
+result, err := client.Coffee(nil).Load(nil, nil)
 ```
 
 ### Common Methods

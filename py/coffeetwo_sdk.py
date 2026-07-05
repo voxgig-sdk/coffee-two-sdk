@@ -221,7 +221,7 @@ class CoffeeTwoSDK:
 
 
     def Coffee(self, data=None) -> "CoffeeEntity":
-        """Entity factory: client.Coffee().list({}) / client.Coffee().load({"id": ...})."""
+        """Entity factory: client.Coffee().list() / client.Coffee().load({"id": ...})."""
         from entity.coffee_entity import CoffeeEntity
         return CoffeeEntity(self, data)
 

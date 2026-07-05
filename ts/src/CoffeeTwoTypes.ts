@@ -9,5 +9,7 @@ export interface Coffee {
   file: string
 }
 
-export type CoffeeLoadMatch = Partial<Coffee>
+export interface CoffeeLoadMatch {
+  file?: string
+}
 

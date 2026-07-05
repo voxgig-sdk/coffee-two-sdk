@@ -10,6 +10,7 @@
 ---@field file string
 
 ---@class CoffeeLoadMatch
+---@field file? string
 
 local M = {}
 

@@ -13,8 +13,7 @@ type Coffee struct {
 	File string `json:"file"`
 }
 
-// CoffeeLoadMatch mirrors the coffee fields as an all-optional match
-// filter (Go analog of Partial<Coffee>).
+// CoffeeLoadMatch is the typed request payload for Coffee.LoadTyped.
 type CoffeeLoadMatch struct {
 	File *string `json:"file,omitempty"`
 }
