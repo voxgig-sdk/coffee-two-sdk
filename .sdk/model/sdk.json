@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -194,14 +191,17 @@
           "url": "https://coffee.alexflipnote.dev/"
         },
         "description": "Start your day with a lovely coffee~ Provides access to a collection of 1257 coffee images. Users can request a random coffee image in JSON format.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://coffee.alexflipnote.dev"
           }
         ],
+        "summary": "Start your day with a lovely coffee~ Provides access to a collection of 1257 coffee images.",
         "title": "Coffee API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://coffee.alexflipnote.dev/"
       },
       "option": {},
       "target": {
@@ -254,6 +254,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -304,6 +307,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

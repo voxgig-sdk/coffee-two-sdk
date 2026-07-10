@@ -15,8 +15,10 @@ main: {
           url: "https://coffee.alexflipnote.dev"
         }
       ]
+      summary: "Start your day with a lovely coffee~ Provides access to a collection of 1257 coffee images."
       title: "Coffee API"
       version: "1.0.0"
+      website: "https://coffee.alexflipnote.dev/"
     }
   }
 }
