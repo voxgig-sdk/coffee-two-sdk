@@ -23,8 +23,8 @@ module CoffeeTwoTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("COFFEETWO_TEST_LIVE")
-    override = getenv("COFFEETWO_TEST_OVERRIDE")
+    live = getenv("COFFEE_TWO_TEST_LIVE")
+    override = getenv("COFFEE_TWO_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CoffeeTwoTestRunner
       end
     end
 
-    explain = getenv("COFFEETWO_TEST_EXPLAIN")
-    m["COFFEETWO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("COFFEE_TWO_TEST_EXPLAIN")
+    m["COFFEE_TWO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

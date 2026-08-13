@@ -42,6 +42,7 @@ module CoffeeTwoConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/random.json",
                   "parts" => [

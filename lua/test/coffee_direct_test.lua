@@ -60,11 +60,11 @@ function coffee_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["COFFEETWO_TEST_COFFEE_ENTID"] = {},
-    ["COFFEETWO_TEST_LIVE"] = "FALSE",
+    ["COFFEE_TWO_TEST_COFFEE_ENTID"] = {},
+    ["COFFEE_TWO_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["COFFEETWO_TEST_LIVE"] == "TRUE"
+  local live = env["COFFEE_TWO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

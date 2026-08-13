@@ -16,11 +16,11 @@
 import pytest
 
 from coffeetwo_sdk import CoffeeTwoSDK
-from core.error import CoffeeTwoError
-from core.result import CoffeeTwoResult
-from core.response import CoffeeTwoResponse
-from core.spec import CoffeeTwoSpec
-from feature.base_feature import CoffeeTwoBaseFeature
+from coffeetwo_sdk.core.error import CoffeeTwoError
+from coffeetwo_sdk.core.result import CoffeeTwoResult
+from coffeetwo_sdk.core.response import CoffeeTwoResponse
+from coffeetwo_sdk.core.spec import CoffeeTwoSpec
+from coffeetwo_sdk.feature.base_feature import CoffeeTwoBaseFeature
 
 
 def _client():

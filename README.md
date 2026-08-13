@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CoffeeTwoSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CoffeeTwoSDK.test({
+  entity: {
+    coffee: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const coffee = await client.Coffee().load()
-// coffee is a bare Coffee populated with mock data
+// coffee is the Coffee entity, populated with mock data
+// — call coffee.data() for the record itself
 console.log(coffee)
 ```
 
@@ -182,7 +191,7 @@ require_once 'coffeetwo_sdk.php';
 $client = new CoffeeTwoSDK();
 
 
-// Load a specific coffee (returns the bare record; throws on error)
+// Load a specific coffee (returns the ENTITY; call data_get() for the record; throws on error)
 $coffee = $client->Coffee()->load();
 print_r($coffee);
 ```
@@ -210,7 +219,7 @@ require_relative "CoffeeTwo_sdk"
 client = CoffeeTwoSDK.new
 
 
-# Load a specific coffee (returns the bare record; raises on error)
+# Load a specific coffee (returns the ENTITY; call data_get for the record)
 coffee = client.Coffee.load()
 puts coffee
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://coffee.alexflipnote.dev/](https://coffee.alexflipnote.dev/)
 

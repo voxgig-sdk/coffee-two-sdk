@@ -35,7 +35,7 @@ $client = new CoffeeTwoSDK();
 
 ```php
 try {
-    // load() returns the bare Coffee record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Coffee record (throws on error).
     $coffee = $client->Coffee()->load();
     print_r($coffee);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CoffeeTwoSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $coffee = $client->Coffee()->load();
 print_r($coffee);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -274,7 +275,7 @@ Create an instance: `$coffee = $client->Coffee();`
 #### Example: Load
 
 ```php
-// load() returns the bare Coffee record (throws on error).
+// load() returns the ENTITY — call data_get() for the Coffee record (throws on error).
 $coffee = $client->Coffee()->load();
 ```
 

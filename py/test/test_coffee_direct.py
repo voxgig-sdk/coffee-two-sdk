@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from coffeetwo_sdk.utility.voxgig_struct import voxgig_struct as vs
 from coffeetwo_sdk import CoffeeTwoSDK
-from core import helpers
+from coffeetwo_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _coffee_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "COFFEETWO_TEST_COFFEE_ENTID": {},
-        "COFFEETWO_TEST_LIVE": "FALSE",
+        "COFFEE_TWO_TEST_COFFEE_ENTID": {},
+        "COFFEE_TWO_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("COFFEETWO_TEST_LIVE") == "TRUE"
+    live = env.get("COFFEE_TWO_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

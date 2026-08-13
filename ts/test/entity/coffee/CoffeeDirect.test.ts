@@ -19,11 +19,15 @@ import {
 describe('CoffeeDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when COFFEETWO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('COFFEETWO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when COFFEE_TWO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('COFFEE_TWO_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new CoffeeTwoSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,17 +76,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'COFFEETWO_TEST_COFFEE_ENTID': {},
-    'COFFEETWO_TEST_LIVE': 'FALSE',
+    'COFFEE_TWO_TEST_COFFEE_ENTID': {},
+    'COFFEE_TWO_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.COFFEETWO_TEST_LIVE
+  const live = 'TRUE' === env.COFFEE_TWO_TEST_LIVE
 
   if (live) {
     const client = new CoffeeTwoSDK({
     })
 
-    let idmap: any = env['COFFEETWO_TEST_COFFEE_ENTID']
+    let idmap: any = env['COFFEE_TWO_TEST_COFFEE_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

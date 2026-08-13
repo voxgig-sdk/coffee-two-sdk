@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CoffeeTwoControl
-from core.error import CoffeeTwoError
-from core.result import CoffeeTwoResult
-from core.spec import CoffeeTwoSpec
+from coffeetwo_sdk.config import make_config
+from coffeetwo_sdk.features import _make_feature
+from coffeetwo_sdk.core.control import CoffeeTwoControl
+from coffeetwo_sdk.core.error import CoffeeTwoError
+from coffeetwo_sdk.core.result import CoffeeTwoResult
+from coffeetwo_sdk.core.spec import CoffeeTwoSpec
 
 
 # True when this SDK was generated with the named feature.

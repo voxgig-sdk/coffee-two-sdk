@@ -34,7 +34,7 @@ client = CoffeeTwoSDK.new
 
 ```ruby
 begin
-  # load returns the bare Coffee record (raises on error).
+  # load returns the ENTITY — call data_get for the Coffee record (raises on error).
   coffee = client.Coffee.load()
   puts coffee
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CoffeeTwoSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 coffee = client.Coffee.load()
 puts coffee
 ```
@@ -264,7 +265,7 @@ Create an instance: `coffee = client.Coffee`
 #### Example: Load
 
 ```ruby
-# load returns the bare Coffee record (raises on error).
+# load returns the ENTITY — call data_get for the Coffee record (raises on error).
 coffee = client.Coffee.load()
 ```
 

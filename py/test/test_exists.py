@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CoffeeTwo SDK exists test
 
 import pytest
 from coffeetwo_sdk import CoffeeTwoSDK

@@ -65,11 +65,11 @@ function coffee_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "COFFEETWO_TEST_COFFEE_ENTID" => [],
-        "COFFEETWO_TEST_LIVE" => "FALSE",
+        "COFFEE_TWO_TEST_COFFEE_ENTID" => [],
+        "COFFEE_TWO_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["COFFEETWO_TEST_LIVE"] === "TRUE";
+    $live = $env["COFFEE_TWO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

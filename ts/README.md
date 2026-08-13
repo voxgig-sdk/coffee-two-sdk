@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = CoffeeTwoSDK.test()
 
 const coffee = await client.Coffee().load()
-// coffee is a bare entity populated with mock response data
+// coffee is the entity, populated with mock response data
+// — call coffee.data() for the record itself
 console.log(coffee)
 ```
 

@@ -26,8 +26,8 @@ import {
 describe('CoffeeEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when COFFEETWO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('COFFEETWO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when COFFEE_TWO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('COFFEE_TWO_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CoffeeTwoSDK.test()
@@ -62,7 +62,7 @@ describe('CoffeeEntity', async () => {
     // LOAD
     const coffee_ref01_ent = client.Coffee()
     const coffee_ref01_match_dt0: any = {}
-    const coffee_ref01_data_dt0 = await coffee_ref01_ent.load(coffee_ref01_match_dt0)
+    const coffee_ref01_data_dt0 = (await coffee_ref01_ent.load(coffee_ref01_match_dt0)).data()
     assert(null != coffee_ref01_data_dt0)
 
 
