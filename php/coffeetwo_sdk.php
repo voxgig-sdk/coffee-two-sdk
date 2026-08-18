@@ -40,7 +40,7 @@ class CoffeeTwoSDK
         $utility = new CoffeeTwoUtility();
         $this->_utility = $utility;
 
-        $config = CoffeeTwoConfig::make_config();
+        $config = CoffeeTwoConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

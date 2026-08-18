@@ -28,7 +28,7 @@ class CoffeeTwoSDK
     utility = CoffeeTwoUtility.new
     @_utility = utility
 
-    config = CoffeeTwoConfig.make_config
+    config = CoffeeTwoConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

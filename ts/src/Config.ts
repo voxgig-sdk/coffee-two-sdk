@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://coffee.alexflipnote.dev',
+    base: "https://coffee.alexflipnote.dev",
 
     headers: {
       "content-type": "application/json"
@@ -55,11 +55,9 @@ class Config {
     "coffee": {
       "fields": [
         {
-          "active": true,
           "name": "file",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         }
       ],
       "name": "coffee",
@@ -69,7 +67,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -81,11 +78,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

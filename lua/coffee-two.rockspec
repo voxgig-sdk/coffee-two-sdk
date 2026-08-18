@@ -23,6 +23,7 @@ build = {
   modules = {
     ["coffee-two_sdk"] = "coffee-two_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

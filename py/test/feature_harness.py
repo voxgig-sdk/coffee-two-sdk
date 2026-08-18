@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from coffeetwo_sdk.config import make_config
+from coffeetwo_sdk.config import shared_config
 from coffeetwo_sdk.features import _make_feature
 from coffeetwo_sdk.core.control import CoffeeTwoControl
 from coffeetwo_sdk.core.error import CoffeeTwoError
@@ -24,7 +24,7 @@ from coffeetwo_sdk.core.spec import CoffeeTwoSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
