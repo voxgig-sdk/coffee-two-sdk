@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "CoffeeTwo",
+            "slug": "coffee-two",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,6 +54,7 @@ def make_config():
           {
             "name": "file",
             "req": True,
+            "short": "URL of the random coffee image",
             "type": "`$STRING`",
           },
         ],

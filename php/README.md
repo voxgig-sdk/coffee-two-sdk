@@ -245,7 +245,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `file` |  |
+| `file` | URL of the random coffee image |
 
 Operations: Load.
 
@@ -270,7 +270,7 @@ Create an instance: `$coffee = $client->Coffee();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file` | `string` |  |
+| `file` | `string` | URL of the random coffee image |
 
 #### Example: Load
 

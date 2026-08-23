@@ -235,7 +235,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `file` |  |
+| `file` | URL of the random coffee image |
 
 Operations: Load.
 
@@ -260,7 +260,7 @@ Create an instance: `coffee = client.Coffee`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file` | `String` |  |
+| `file` | `String` | URL of the random coffee image |
 
 #### Example: Load
 

@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "CoffeeTwo",
+      slug = "coffee-two",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,6 +33,7 @@ local function make_config()
           {
             ["name"] = "file",
             ["req"] = true,
+            ["short"] = "URL of the random coffee image",
             ["type"] = "`$STRING`",
           },
         },

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CoffeeTwo",
+			"slug": "coffee-two",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,6 +37,7 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "file",
 						"req": true,
+						"short": "URL of the random coffee image",
 						"type": "`$STRING`",
 					},
 				},

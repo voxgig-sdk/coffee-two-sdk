@@ -36,6 +36,7 @@
               "active": true,
               "name": "file",
               "req": true,
+              "short": "URL of the random coffee image",
               "type": "`$STRING`"
             }
           ],

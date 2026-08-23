@@ -90,7 +90,7 @@ local coffee = client:Coffee(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | `string` | Yes |  |
+| `file` | `string` | Yes | URL of the random coffee image |
 
 ### Operations
 

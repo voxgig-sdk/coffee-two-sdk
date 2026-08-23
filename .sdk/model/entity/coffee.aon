@@ -8,6 +8,7 @@ main: kit: entity: coffee: {
     {
       name: "file"
       req: true
+      short: "URL of the random coffee image"
       type: "`$STRING`"
     }
   ]

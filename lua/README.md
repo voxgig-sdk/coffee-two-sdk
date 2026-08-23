@@ -225,7 +225,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `file` |  |
+| `file` | URL of the random coffee image |
 
 Operations: Load.
 
@@ -250,7 +250,7 @@ Create an instance: `local coffee = client:Coffee(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file` | `string` |  |
+| `file` | `string` | URL of the random coffee image |
 
 #### Example: Load
 

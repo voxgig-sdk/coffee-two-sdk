@@ -87,7 +87,7 @@ coffee = client.Coffee()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `file` | `str` | Yes |  |
+| `file` | `str` | Yes | URL of the random coffee image |
 
 ### Operations
 

@@ -241,7 +241,7 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `file` |  |
+| `file` | URL of the random coffee image |
 
 Operations: Load.
 
@@ -266,7 +266,7 @@ Create an instance: `coffee = client.Coffee()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `file` | `str` |  |
+| `file` | `str` | URL of the random coffee image |
 
 #### Example: Load
 

@@ -19,6 +19,9 @@ module CoffeeTwoConfig
     {
       "main" => {
         "name" => "CoffeeTwo",
+        "slug" => "coffee-two",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,6 +45,7 @@ module CoffeeTwoConfig
             {
               "name" => "file",
               "req" => true,
+              "short" => "URL of the random coffee image",
               "type" => "`$STRING`",
             },
           ],

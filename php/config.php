@@ -33,6 +33,9 @@ class CoffeeTwoConfig
         return [
             "main" => [
                 "name" => "CoffeeTwo",
+                "slug" => "coffee-two",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,6 +59,7 @@ class CoffeeTwoConfig
             [
               'name' => 'file',
               'req' => true,
+              'short' => 'URL of the random coffee image',
               'type' => '`$STRING`',
             ],
           ],
