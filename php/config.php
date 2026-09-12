@@ -58,6 +58,7 @@ class CoffeeTwoConfig
         'coffee' => [
           'fields' => [
             [
+              'format' => 'uri',
               'name' => 'file',
               'req' => true,
               'short' => 'URL of the random coffee image',
@@ -75,13 +76,18 @@ class CoffeeTwoConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/random.json',
-                  'parts' => [
-                    'random.json',
+                  'segments' => [
+                    [
+                      'lit' => 'random.json',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'random.json',
                   ],
                 ],
               ],

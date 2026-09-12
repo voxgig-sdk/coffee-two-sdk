@@ -32,6 +32,7 @@ local function make_config()
       ["coffee"] = {
         ["fields"] = {
           {
+            ["format"] = "uri",
             ["name"] = "file",
             ["req"] = true,
             ["short"] = "URL of the random coffee image",
@@ -49,13 +50,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/random.json",
-                ["parts"] = {
-                  "random.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "random.json",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "random.json",
                 },
               },
             },

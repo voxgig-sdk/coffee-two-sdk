@@ -6,6 +6,7 @@ main: kit: entity: coffee: {
 
   fields: [
     {
+      format: "uri"
       name: "file"
       req: true
       short: "URL of the random coffee image"
@@ -21,8 +22,10 @@ main: kit: entity: coffee: {
         {
           method: "GET"
           orig: "/random.json"
-          parts: [
-            "random.json"
+          segments: [
+            {
+              lit: "random.json"
+            }
           ]
           transform: {
             req: "`reqdata`"
