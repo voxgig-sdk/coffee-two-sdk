@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two'
+import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two-sdk'
 
 const client = new CoffeeTwoSDK()
 ```
@@ -401,7 +401,7 @@ coffee-two/
 Import the SDK from the package root:
 
 ```ts
-import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two'
+import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two-sdk'
 ```
 
 ### Entity state

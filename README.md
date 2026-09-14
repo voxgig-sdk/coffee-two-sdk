@@ -105,7 +105,7 @@ local result, err = client:Coffee():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
+| TypeScript | `@voxgig-sdk/coffee-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
 | Python | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
 | PHP | `voxgig-sdk/coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/coffee-two-sdk/go` | `go get github.com/voxgig-sdk/coffee-two-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Coffee():load()
 ### TypeScript
 
 ```ts
-import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two'
+import { CoffeeTwoSDK } from '@voxgig-sdk/coffee-two-sdk'
 
 const client = new CoffeeTwoSDK()
 
