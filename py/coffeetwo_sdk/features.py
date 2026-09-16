@@ -1,12 +1,18 @@
 # CoffeeTwo SDK feature factory
 
 from coffeetwo_sdk.feature.base_feature import CoffeeTwoBaseFeature
+from coffeetwo_sdk.feature.ratelimit_feature import CoffeeTwoRatelimitFeature
+from coffeetwo_sdk.feature.retry_feature import CoffeeTwoRetryFeature
 from coffeetwo_sdk.feature.test_feature import CoffeeTwoTestFeature
+from coffeetwo_sdk.feature.timeout_feature import CoffeeTwoTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CoffeeTwoBaseFeature(),
+    "ratelimit": lambda: CoffeeTwoRatelimitFeature(),
+    "retry": lambda: CoffeeTwoRetryFeature(),
     "test": lambda: CoffeeTwoTestFeature(),
+    "timeout": lambda: CoffeeTwoTimeoutFeature(),
 }
 
 
