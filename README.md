@@ -105,12 +105,12 @@ local result, err = client:Coffee():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/coffee-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
-| Python | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
-| PHP | `voxgig-sdk/coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
+| TypeScript | `@voxgig-sdk/coffee-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/tags) |
+| Python | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/tags) |
+| PHP | `voxgig-sdk/coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/coffee-two-sdk/go` | `go get github.com/voxgig-sdk/coffee-two-sdk/go@latest` |
-| Ruby | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
-| Lua | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/releases) |
+| Ruby | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/tags) |
+| Lua | `voxgig-sdk-coffee-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coffee-two-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/coffee-two-sdk/go-cli` | `go install github.com/voxgig-sdk/coffee-two-sdk/go-cli/cmd/coffee-two@latest` |
 | Go MCP server | `github.com/voxgig-sdk/coffee-two-sdk/go-mcp` | `go get github.com/voxgig-sdk/coffee-two-sdk/go-mcp@latest` |
 
