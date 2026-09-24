@@ -98,11 +98,12 @@ module CoffeeTwoConfig
         "coffee" => {
           "fields" => [
             {
-              "format" => "uri",
               "name" => "file",
+              "title" => "File",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "URL of the random coffee image",
-              "type" => "`$STRING`",
+              "format" => "uri",
             },
           ],
           "name" => "coffee",
@@ -112,7 +113,6 @@ module CoffeeTwoConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/random.json",
@@ -121,14 +121,16 @@ module CoffeeTwoConfig
                       "lit" => "random.json",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "random.json",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "random.json",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },

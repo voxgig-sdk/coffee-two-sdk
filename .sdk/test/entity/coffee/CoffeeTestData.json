@@ -25,38 +25,8 @@
   "requests": {
     "GET /random.json": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getRandomCoffeeJson",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "example": {
-                  "file": "https://coffee.alexflipnote.dev/coffee_image.jpg"
-                },
-                "schema": {
-                  "properties": {
-                    "file": {
-                      "description": "URL of the random coffee image",
-                      "example": "https://coffee.alexflipnote.dev/coffee_image.jpg",
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "file"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Successful response with random coffee image"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

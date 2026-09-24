@@ -1,0 +1,47 @@
+# Entity: coffee
+
+main: kit: entity: coffee: {
+
+  alias: field: {}
+
+  fields: {
+    file: {
+      fo: "uri"
+      h: "File"
+      n: "file"
+      r: true
+      sh: "URL of the random coffee image"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "coffee"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /random.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/random.json"
+          s: [
+            {
+              lit: "random.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

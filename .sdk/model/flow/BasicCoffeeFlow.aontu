@@ -1,0 +1,28 @@
+# BasicCoffeeFlow
+
+main: kit: flow: BasicCoffeeFlow:
+{
+  entity: "coffee",
+  kind: "basic",
+  name: "BasicCoffeeFlow",
+  step: [
+    {
+      i: {
+        ref: "coffee_ref01",
+        srcdatavar: "coffee_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-coffee_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCoffeeFlow"
+}

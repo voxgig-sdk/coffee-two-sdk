@@ -90,11 +90,12 @@ func MakeConfig() map[string]any {
 			"coffee": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "uri",
 						"name": "file",
+						"title": "File",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "URL of the random coffee image",
-						"type": "`$STRING`",
+						"format": "uri",
 					},
 				},
 				"name": "coffee",
@@ -104,7 +105,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/random.json",
@@ -113,14 +113,16 @@ func MakeConfig() map[string]any {
 										"lit": "random.json",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"random.json",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"random.json",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

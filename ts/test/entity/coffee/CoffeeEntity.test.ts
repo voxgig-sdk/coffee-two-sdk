@@ -25,10 +25,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -55,7 +51,7 @@ describe('CoffeeEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"format":"uri","name":"file","req":true,"short":"URL of the random coffee image","type":"`$STRING`","index$":0}],"name":"coffee","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{},"contract":{"id":"GET /random.json","json":"{\"operationId\":\"getRandomCoffeeJson\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"file\":\"https://coffee.alexflipnote.dev/coffee_image.jpg\"},\"schema\":{\"properties\":{\"file\":{\"description\":\"URL of the random coffee image\",\"example\":\"https://coffee.alexflipnote.dev/coffee_image.jpg\",\"format\":\"uri\",\"type\":\"string\"}},\"required\":[\"file\"],\"type\":\"object\"}}},\"description\":\"Successful response with random coffee image\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/random.json","segments":[{"lit":"random.json"}],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"coffee","name__orig":"coffee","Name":"Coffee","name_":"coffee","name-":"coffee","NAME":"COFFEE","index$":0}, {"active":true,"entity":"coffee","key$":"BasicCoffeeFlow","kind":"basic","name":"BasicCoffeeFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"coffee_ref01","srcdatavar":"coffee_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-coffee_ref01"}}],"index$":0}]}, 'Coffee')
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"file":{"a":true,"fo":"uri","h":"File","n":"file","r":true,"sh":"URL of the random coffee image","t":"`$STRING`","key$":"file","index$":0}},"name":"coffee","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /random.json","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/random.json","q":{},"r":{},"s":[{"lit":"random.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"coffee","name__orig":"coffee","Name":"Coffee","name_":"coffee","name-":"coffee","NAME":"COFFEE","index$":0}, {"active":true,"entity":"coffee","key$":"BasicCoffeeFlow","kind":"basic","name":"BasicCoffeeFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"coffee_ref01","srcdatavar":"coffee_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-coffee_ref01"}}],"index$":0}]}, 'Coffee', {"GET /random.json":{"protocol":"http","operationId":"getRandomCoffeeJson","responses":{"200":{"description":"Successful response with random coffee image","content":{"application/json":{"schema":{"type":"object","properties":{"file":{"description":"URL of the random coffee image","example":"https://coffee.alexflipnote.dev/coffee_image.jpg","format":"uri","key$":"file","type":"string"}},"required":["file"],"index$":0},"example":{"file":"https://coffee.alexflipnote.dev/coffee_image.jpg"}}}}},"parameters":[],"securitySource":"unspecified"}})
     }
     const client = setup.client
     const struct = setup.struct
