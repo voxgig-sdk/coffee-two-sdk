@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CoffeeTwoUtility.registrar = ->(u) {
   u.clean = CoffeeTwoUtilities::Clean
+  u.clean_add = CoffeeTwoUtilities::CleanAdd
+  u.clean_explain = CoffeeTwoUtilities::CleanExplain
   u.done = CoffeeTwoUtilities::Done
   u.make_error = CoffeeTwoUtilities::MakeError
   u.feature_add = CoffeeTwoUtilities::FeatureAdd

@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CoffeeTwoUtility::setRegistrar(function (CoffeeTwoUtility $u): void {
     $u->clean = [CoffeeTwoClean::class, 'call'];
+    $u->clean_add = [CoffeeTwoClean::class, 'add'];
+    $u->clean_explain = [CoffeeTwoDone::class, 'clean_explain'];
     $u->done = [CoffeeTwoDone::class, 'call'];
     $u->make_error = [CoffeeTwoMakeError::class, 'call'];
     $u->feature_add = [CoffeeTwoFeatureAdd::class, 'call'];
