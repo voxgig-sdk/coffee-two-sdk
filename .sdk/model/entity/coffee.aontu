@@ -28,6 +28,10 @@ main: kit: entity: coffee: {
           }
           m: "GET"
           o: "/random.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "random.json"

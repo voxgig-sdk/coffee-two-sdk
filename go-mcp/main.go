@@ -34,7 +34,7 @@ func main() {
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "coffee-two",
-			Version: "0.0.0",
+			Version: "0.0.1",
 		},
 		nil,
 	)
